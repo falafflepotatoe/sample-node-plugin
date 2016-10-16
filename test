@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+assert = require("assert");
+
+//Build Release folder
+try {
+    hf = require('./build/Release/octoberlibrary.node').hf;
+}catch(e){
+    // Local Folder
+    hf = require('./octoberlibrary.node').hf;
+}
+     
+assert(hf('hash this stuff for me') == 1404204226);
+
+console.log('tests passed');
