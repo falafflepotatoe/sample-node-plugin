@@ -24,12 +24,12 @@ int hf(std::string const& s) {
 // Node wrapper for C++ functions
 
 void Hash(const FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = args.GetIsolate();
-  // Validate arguments
-  if (args.Length() < 1 || !args[0]->IsString()) {
-    isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Invalid argument, Hash() only takes one argument (string)")));
-    return;
-  }
+	Isolate* isolate = args.GetIsolate();
+	// Validate arguments
+	if (args.Length() < 1 || !args[0]->IsString()) {
+		isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Invalid argument, Hash() only takes one argument (string)")));
+		return;
+	}
 	// Type conversion
 	v8::String::Utf8Value param1(args[0]->ToString());
 	std::string str = std::string(*param1);
